@@ -1,20 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/stack';
+import navigationTheme from './navigation/navigationTheme';
+import { StyleSheet, Text, View, Dimensions, Animated, FlatList, Pressable } from 'react-native';
+import Header from './components/Header';
+import InfoNavigator from './navigation/InfoNavigator';
+import DevCoach from './screens/DevCoach/DevCoach';
+import InfoScreen from './screens/InfoScreen';
+import AppNavigator from './navigation/AppNavigator';
+import InfoFlatlistHeader from './components/InfoFlatlistHeader';
+
 
 export default function App() {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer theme={navigationTheme}>
+     <AppNavigator />
+      {/* <InfoFlatlistHeader /> */}
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
 });
