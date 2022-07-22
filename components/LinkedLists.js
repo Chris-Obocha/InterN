@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, Pressable, StyleSheet, TouchableOpacity } from 'react-native';
 import colors from '../config/colors';
+import * as Linking from 'expo-linking';
 
 export default function LinkedLists({ title, text, date, onPress }) {
   return (
@@ -30,8 +31,8 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.dark,
-    fontSize: 20,
-    fontWeight: '700',
+    fontSize: 18,
+    fontWeight: '600',
     marginVertical: 3,
     textAlign: 'left',
   },

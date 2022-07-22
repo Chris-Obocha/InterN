@@ -21,13 +21,13 @@ else {
   app = firebase.app();
 }
 
-firebase.auth().onAuthStateChanged((user) => {
-  if (user != null) {
-    setIsLoggedIn(true)
-  } else {
-    setIsLoggedIn(false);
-  }
-});
+// firebase.auth().onAuthStateChanged((user) => {
+//   if (user != null) {
+//     setIsLoggedIn(true)
+//   } else {
+//     setIsLoggedIn(false);
+//   }
+// });
 
 
 export const auth = firebase.auth();
