@@ -4,34 +4,32 @@ import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const {width, height} = Dimensions.get('screen');
-// https://www.flaticon.com/packs/retro-wave
-// inspiration: https://dribbble.com/shots/11164698-Onboarding-screens-animation
-// https://twitter.com/mironcatalin/status/1321180191935373312
-const bgs = ['#A5BBFF', '#DDBEFE', '#FF63ED', '#B98EFF'];
+
+const bgs = [ '#007266', '#43BA75', '#FF63ED', '#B98EFF'];
 const DATA = [
-  {
-    "key": "3571572",
-    "title": "InterN",
-    "description": "The goal of this project is to create a careers hub mobile app for the incoming international nurses in order to provide them with learning materials, assistance, and help acclimatizing to the UK",
-    "image": "https://cdn-icons-png.flaticon.com/512/4511/4511973.png"
-  },
   {
     "key": "3571747",
     "title": "Hertfordshire and West Essex ICS",
     "description": "HWEICS comprises of three CCGs, three acute hospitals, one ambulance Trust, three community and mental health trusts and two County Councils. The ICS is responsible for providing health and social care services for a population of 1.5 million.",
-    "image": "https://cdn-icons.flaticon.com/png/512/1665/premium/1665248.png?token=exp=1653504855~hmac=4e17cf83399f1f6aae4553c3f0cf4cd9"
+    "image": require('../assets/HWEICS_logos_RGB_HWEICS_logo.png')
+  },
+  {
+    "key": "3571572",
+    "title": "InterN",
+    "description": "The goal of this project is to create a careers hub mobile app for the incoming international nurses in order to provide them with learning materials, assistance, and help acclimatizing to the UK",
+    "image": require('../assets/InterN-green-logoV3.png')
   },
   {
     "key": "3571680",
     "title": "Home to several towns",
     "description": "The counties are home to several lively towns including Watford, Hemel Hempstead, Potters Bar, Hatfield, Welwyn Garden City, Stevenage, Harlow and Hertford, as well as the city of St Albans.  Hertfordshire is home to the first garden cities - Letchworth and Welwyn, and has two major international airports, Luton and Stansted, close by.",
-    "image": "https://cdn-icons-png.flaticon.com/512/1384/1384265.png"
+    "image": require('../assets/illustration2.png')
   },
   {
     "key": "3571603",
     "title": "Great for families",
     "description": "with fantastic schools and plenty on offer within the county and close by. In the 2020 Halifax Quality of Life survey east Hertfordshire was voted as the best place to live in the UK. Harlow is also attracting investment and developing a reputation as a science and pharmaceutical hub.",
-    "image": "https://cdn-icons.flaticon.com/png/512/1865/premium/1865269.png?token=exp=1653505005~hmac=978a3aad02916a2e727e0582292a47e2"
+    "image": require('../assets/illustration.png')
   }
 ];
 
@@ -172,7 +170,7 @@ export default function Onboarding() {
                   justifyContent: 'center' 
               }}>
                 <Image 
-                  source={{uri: item.image}} 
+                  source={item.image} 
                   style={{
                       width: width / 2, 
                       height: width / 2, 
@@ -201,7 +199,6 @@ alignItems: 'center',
 justifyContent: 'center',
 },
 btn: {
-  // position: 'absolute',
   width: 110, 
   height: 55,
   justifyContent: 'center',

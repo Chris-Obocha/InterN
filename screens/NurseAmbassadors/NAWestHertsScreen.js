@@ -5,20 +5,23 @@ import * as Linking from 'expo-linking';
 import InfoHeader from '../../components/InfoHeader';
 import ContactButton from '../../components/Buttons/ContactButton';
 import NAText from '../../components/NAText';
+import AppText from '../../components/AppText';
 
 export default function NAWestHertsScreen() {
   return (
-    <ScrollView>
+    <View style={{ flex: 1 }}>
       <InfoHeader title='Anne Jose' text='Nurse Ambassador @WestHertfordshireNHSTrust' imageSrc={require('../../assets/ann-jose.jpg')}/>
-      <Text style={styles.heading}>Profile</Text>
-      <Text style={styles.text}>{NAText.wh1}</Text>
-      <Text style={styles.text}>{NAText.wh2}</Text>
-      <Text style={styles.text}>{NAText.wh3}</Text>
-      <View>
-        <ContactButton title='email' url='mailto:ann.jose@nhs.net' text='ann.jose@nhs.net' />
-        <ContactButton title='Phone Number' url='tel:01923244366' text='01923244366' />
-      </View>
-    </ScrollView>
+      <ScrollView>
+        <AppText style={styles.heading}>Profile</AppText>
+        <AppText style={styles.text}>{NAText.wh1}</AppText>
+        <AppText style={styles.text}>{NAText.wh2}</AppText>
+        <AppText style={styles.text}>{NAText.wh3}</AppText>
+        <View>
+          <ContactButton title='email' url='mailto:ann.jose@nhs.net' text='ann.jose@nhs.net' />
+          <ContactButton title='Phone Number' url='tel:01923244366' text='01923244366' />
+        </View>
+      </ScrollView>
+    </View>
   );
 }
 

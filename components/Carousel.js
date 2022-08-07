@@ -4,10 +4,11 @@ import * as Linking from 'expo-linking';
 
 import { firebase } from '../config/firebase';
 import colors from '../config/colors';
+import AppText from './AppText';
 
 function Carousel(props) {
   const [users, setUsers] = useState([]);
-  const todoRef = firebase.firestore().collection('News');
+  const todoRef = firebase.firestore().collection('Featured');
 
   const [selected, setSelected] = useState();
 
@@ -32,7 +33,7 @@ function Carousel(props) {
 
   useEffect(() => {
     feeder();
-  });
+  }, []);
 
 
   return (
@@ -41,15 +42,16 @@ function Carousel(props) {
       data={users}
       keyExtractor={item => item.id}
       horizontal
+      showsHorizontalScrollIndicator={false}
       renderItem={({item}) => (
         <Pressable 
           onPress={() => Linking.openURL(`${item.url}`).catch(err => alert.error('Error', err))}
           children={() => { setSelected(item.id) }}
           style={[ item === selected ? {backgroundColor: colors.gray} : {backgroundColor: colors.primary}, styles.cardContainer ]}>
           <View>
-            <Text style={styles.titleText}>{item.title}</Text>
-            <Text style={styles.dateText}>{item.date}</Text>
-            <Text style={styles.textText}>{item.text}</Text>
+            <AppText numberOfLines={2} style={styles.titleText}>{item.title}</AppText>
+            <AppText numberOfLines={1} style={styles.dateText}>{item.date}</AppText>
+            <AppText numberOfLines={3} style={styles.textText}>{item.text}</AppText>
           </View>
         </Pressable>
       )}
@@ -68,7 +70,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginVertical: 10,
     padding: 15,
-
     borderRadius: 20,
   },
   titleText: {
@@ -76,17 +77,20 @@ const styles = StyleSheet.create({
     fontSize: 19,
     fontWeight: '600',
     alignSelf: 'center',
+    textAlign: 'center',
   },
   textText: {
     color: colors.white,
     fontSize: 16,
     alignSelf: 'center',
     paddingTop: 10,
+    textAlign: 'center',
   },
   dateText: {
     color: colors.gray,
     fontSize: 16,
     alignSelf: 'center',
+    textAlign: 'center',
     // paddingTop: 10,
   },
 });

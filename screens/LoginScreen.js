@@ -1,11 +1,13 @@
 import React from "react";
-import { StyleSheet, Image } from "react-native";
+import { StyleSheet, Image, View, TouchableOpacity, Alert } from "react-native";
 import * as Yup from "yup";
 import { useNavigation } from '@react-navigation/core';
+import LottieView from 'lottie-react-native';
 
 import Screen from "../components/Screen";
+import colors from "../config/colors";
 import { firebase } from '../config/firebase';
-import { AppForm, AppFormField, SubmitButton } from "../components/forms";
+import { AppForm, AppFormField, AppText, SubmitButton } from "../components/forms";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -24,19 +26,6 @@ function LoginScreen(props) {
     try {
       const userCredential = await auth.signInWithEmailAndPassword(values.email, values.password)
       const user = userCredential.user
-
-      // const user = userCredential.user
-      
-      // await db.collection("data").doc(`${values.name}`).set({
-        //           name: values.name,
-        //           email: values.email,
-        //           trust: values.trust.label,
-        //           date: date,
-        //         });
-
-      // const userCredential = await auth.sendPasswordResetEmail(user.email)
-      // navigation.replace('Hub')
-      console.log('Logged2 In with:', user.email);
     } catch (e) {
       alert(e)
     }
@@ -44,8 +33,9 @@ function LoginScreen(props) {
 
   return (
     <Screen style={styles.container}>
-      {/* <Image style={styles.logo} source={require("../assets/logo-red.png")} /> */}
-
+      <View style={styles.animationContainer}>
+        <LottieView source={require('../assets/animation/login-animation.json')} autoPlay loop />
+      </View>
       <AppForm
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => handleLogin(values)}
@@ -70,6 +60,14 @@ function LoginScreen(props) {
           textContentType="password"
         />
         <SubmitButton title="Login" />
+        <View style={styles.textContainer}>
+          <TouchableOpacity onPress={() => navigation.navigate("ForgotPasswordScreen")}>
+            <AppText style={styles.text}>Forgot Password?</AppText>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("RegisterScreen")}>
+            <AppText style={styles.text}>Create account</AppText>
+          </TouchableOpacity>
+        </View>
       </AppForm>
     </Screen>
   );
@@ -77,14 +75,23 @@ function LoginScreen(props) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    padding: 15,
   },
-  logo: {
-    width: 80,
-    height: 80,
-    alignSelf: "center",
-    marginTop: 50,
-    marginBottom: 20,
+  animationContainer: {
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
+  textContainer: {
+    flexDirection: "row",
+    justifyContent: 'space-between',
+    marginTop: 10,
+  },
+  text: {
+    fontSize: 16,
+    fontStyle: 'italic',
+    color: colors.primary,
   },
 });
 

@@ -4,17 +4,15 @@ import * as Linking from 'expo-linking';
 
 import { firebase } from '../config/firebase';
 import Carousel from '../components/Carousel';
-import Header from '../components/Header';
-import Fetch from '../components/Fetch';
 import colors from '../config/colors';
 import LinkedLists from '../components/LinkedLists';
+import Screen from '../components/Screen';
+import AppText from '../components/AppText';
 
 function HomeScreen(props) {
 
   const [users, setUsers] = useState([]);
-  const todoRef = firebase.firestore().collection('featured');
-
-  const [selected, setSelected] = useState();
+  const todoRef = firebase.firestore().collection('News');
 
   const feeder = async () => {
     todoRef
@@ -39,30 +37,18 @@ function HomeScreen(props) {
     feeder();
   });
 
-  const FlatlistHeader = () => {
-    return (
-      <View>
-        <Text style={styles.heading}>Featured</Text>
-        <Carousel />
-        <Text style={styles.heading}>Past News</Text>
-      </View>
-
-    );
-  };
-
 
   return (
-    <View>
-        <Header title='Home Screen' text='This app is designed for...' />
+    <Screen>
+        {/* <Header text='Here you can find updates from the Trust, news, and upcoming events' /> */}
         <FlatList
-        // style={{ height: '100%' }}
         data={users}
         keyExtractor={item => item.id}
         ListHeaderComponent={(
           <View>
-            <Text style={styles.heading}>Featured</Text>
+            {/* <Text style={styles.heading}>Featured</Text> */}
             <Carousel />
-            <Text style={styles.heading}>Past News</Text>
+            <AppText style={styles.heading}>Past News</AppText>
           </View>
         )}
         renderItem={({ item }) => {
@@ -76,7 +62,7 @@ function HomeScreen(props) {
           );
         }}
       />
-    </View>
+    </Screen>
   );
 }
 
@@ -88,6 +74,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: colors.black,
     alignSelf: 'center',
-    marginTop: 15,
+    paddingTop: 15,
   },
 });

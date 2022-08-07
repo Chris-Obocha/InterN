@@ -33,7 +33,7 @@ const Square = () => {
 export default function FAQ() {
 
   const [users, setUsers] = useState([]);
-  const todoRef = firebase.firestore().collection('far');
+  const todoRef = firebase.firestore().collection('FAQs');
 
   const todoRefFunction = async () => {
     todoRef

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -6,30 +6,29 @@ import { View, StyleSheet, Button, Alert } from 'react-native';
 import { firebase } from '../config/firebase';
 import { useNavigation } from '@react-navigation/core';
 
+import colors from "../config/colors";
 import InfoNavigator from "./InfoNavigator";
 import FAQScreen from "../screens/FAQScreen";
 import HomeScreen from "../screens/HomeScreen";
-import AuthNavigator from "./AuthNavigator";
+import DeleteAccount from "../screens/DeleteAccount";
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
 const auth = firebase.auth();
 
-function TwoButtonAlert() {
-  
+function LogOutComp() {
   const navigation = useNavigation();
+  
   const handleSignOut = () => {
-    
     try {
       auth.signOut();
-      console.log('LoggedOut In with: ');
     } catch (e) {
       alert(e)
     }
   }
 
-  const twoButtonA = () => Alert.alert(
+  const logout = () => Alert.alert(
     "Log Out",
     "Are you sure you want to log out?",
     [
@@ -44,16 +43,33 @@ function TwoButtonAlert() {
 
   return (
     <View style={styles.container}>
-      <Button title={"Log Out"} onPress={twoButtonA} />
+      <Button title={"Log Out"} onPress={logout} />
     </View>
   )
 }
 
+
+
 function  HomeDrawer() {
   return (
-    <Drawer.Navigator useLegacyImplementation={true}>
-      <Drawer.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
-      <Drawer.Screen name="Log Out" component={TwoButtonAlert} />
+    <Drawer.Navigator 
+      useLegacyImplementation={true}
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: colors.primary,
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          fontSize: 26,
+        },
+      }}
+      >
+      <Drawer.Screen name="Home" component={HomeScreen} options={{
+        headerShown: true,  
+        }}/>
+      <Drawer.Screen name="Log Out" component={LogOutComp} />
+      <Drawer.Screen name="Delete Account" component={DeleteAccount} />
     </Drawer.Navigator>
   );
 }

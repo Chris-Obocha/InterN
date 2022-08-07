@@ -1,6 +1,8 @@
 import React from 'react';
 import * as Linking from 'expo-linking';
 import { Text, View, Pressable, StyleSheet, TouchableOpacity } from 'react-native';
+
+import AppText from './AppText';
 import colors from '../config/colors';
 
 function InfoLinkedList({ title, text, url}) {
@@ -8,8 +10,8 @@ function InfoLinkedList({ title, text, url}) {
     <TouchableOpacity onPress={() => Linking.openURL(`${url}`).catch(err => alert.error('Error', err))}>
       <View style={styles.container}>
         <View style={styles.btnContainer}>
-          <Text style={styles.title}>{title}</Text>
-          <Text numberOfLines={3} style={styles.text}>{text}</Text>
+          <AppText style={styles.title}>{title}</AppText>
+          <AppText numberOfLines={3} style={styles.text}>{text}</AppText>
         </View>
       </View>
     </TouchableOpacity>

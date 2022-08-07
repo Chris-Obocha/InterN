@@ -4,6 +4,7 @@ import { firebase } from '../config/firebase';
 
 import Screen from '../components/Screen';
 import colors from '../config/colors';
+import AppText from '../components/AppText';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -29,7 +30,7 @@ const Square = () => {
       style={{
         width: 400,
         height: 400,
-        backgroundColor: '#007afe',
+        backgroundColor: colors.primary,
         borderRadius: 86,
         position: 'absolute',
         top: -400 * 0.6,
@@ -47,7 +48,7 @@ const Square = () => {
 const FAQScreen = () => {
 
   const [users, setUsers] = useState([]);
-  const todoRef = firebase.firestore().collection('far');
+  const todoRef = firebase.firestore().collection('FAQs');
 
   const feeder = async () => {
     todoRef
@@ -66,23 +67,6 @@ const FAQScreen = () => {
     })
   };
 
-  // useEffect(async () => {
-  //   todoRef
-  //   .onSnapshot( 
-  //     querySnapshot => {
-  //     const users = []
-  //     querySnapshot.forEach((doc) => {
-  //       const {question, answer} = doc.data()
-  //       users.push({
-  //         id: doc.id,
-  //         question,
-  //         answer,
-  //       })
-  //     })
-  //     setUsers(users)
-  //   })
-  // }, [])
-
   useEffect(() => {
     feeder();
   });
@@ -93,7 +77,7 @@ const FAQScreen = () => {
       <Backdrop/>
       <Square />
       <View>
-        <Text style={styles.pageHeading}>FAQs</Text>
+        <AppText style={styles.pageHeading}>FAQs</AppText>
       </View>
       <FlatList
         style={{height:'100%', marginTop: 20}}
@@ -104,12 +88,10 @@ const FAQScreen = () => {
             style={styles.container}
           >
             <View style={styles.innerContainer}>
-              <Text style={styles.itemHeading}>{item.question}</Text>
-              <Text style={styles.itemText}>{item.answer}</Text>
+              <AppText style={styles.itemHeading}>{item.question}</AppText>
+              <AppText style={styles.itemText}>{item.answer}</AppText>
             </View> 
-              
           </Pressable>
-
         )}
       />
     </Screen>
@@ -146,7 +128,7 @@ const styles = StyleSheet.create({
   pageHeading: {
     fontWeight: 'bold',
     fontSize: 24,
-    marginBottom: 5,
+    marginVertical: 5,
     color: '#fff',
     alignSelf: 'center',
 },

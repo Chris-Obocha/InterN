@@ -1,26 +1,28 @@
 import React from 'react';
 import { Image, StyleSheet, ScrollView, Text, View } from 'react-native';
-import * as Linking from 'expo-linking';
+
 
 import InfoHeader from '../../components/InfoHeader';
-import devCoachText from '../../components/devCoachText';
+import AppText from '../../components/AppText';
 import NAText from '../../components/NAText';
-import BlueButton from '../../components/Buttons/BlueButton';
 import ContactButton from '../../components/Buttons/ContactButton';
 
 export default function NAEastHertsScreen() {
   return (
-    <ScrollView>
-      <InfoHeader title='Jaimol Anilkumar' text='Nurse Ambassador' imageSrc={require('../../assets/jaimol.png')}/>
-      <Text style={styles.heading}>Profile</Text>
-      <Text style={styles.text}>{NAText.enh1}</Text>
-      <Text style={styles.text}>{NAText.enh2}</Text>
-      <Text style={styles.text}>{NAText.enh3}</Text>
-      <View>
-        <ContactButton title='email' url='mailto:jaimol.anilkumar@nhs.net' text='jaimol.anilkumar@nhs.net' />
-        <ContactButton title='Phone Number' url='tel:07903949908' text='07812785184 ' />
-      </View>
-    </ScrollView>
+    <View style={{ flex: 1 }}>
+      <InfoHeader title='Mary Oyakhirome' text='Nurse Ambassador' imageSrc={require('../../assets/mary.jpg')}/>
+      <ScrollView>
+        <AppText style={styles.heading}>Profile</AppText>
+        <AppText style={styles.text}>{NAText.enh1}</AppText>
+        <AppText style={styles.text}>{NAText.enh2}</AppText>
+        <AppText style={styles.text}>{NAText.enh3}</AppText>
+        <AppText style={styles.text}>{NAText.enh4}</AppText>
+        <View>
+          {/* <ContactButton title='email' url='mailto:jaimol.anilkumar@nhs.net' text='jaimol.anilkumar@nhs.net' /> */}
+          <ContactButton title='Phone Number' url='tel:07444144815 ' text='07444144815'  />
+        </View>
+      </ScrollView>
+    </View>
   );
 }
 

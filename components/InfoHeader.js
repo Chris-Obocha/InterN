@@ -2,13 +2,14 @@ import React from 'react';
 import { Text, View, StyleSheet, Image, StatusBar } from 'react-native';
 
 import colors from '../config/colors';
+import AppText from './AppText';
 
 function InfoHeader({title, text, imageSrc}) {
   return (
       <View style={styles.headerContainer}>
         <View style={styles.textBody}>
-          <Text style={styles.heading}>{title}</Text>
-          <Text style={styles.text}>{text}</Text>
+          <AppText style={styles.heading}>{title}</AppText>
+          <AppText style={styles.text}>{text}</AppText>
         </View>
         <View style={styles.imgContainer}>
           <Image style={styles.image} source={imageSrc}/>
@@ -33,7 +34,6 @@ const styles = StyleSheet.create({
     paddingBottom: 25,
     borderBottomRightRadius: 30,
     borderBottomLeftRadius: 30,
-    marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'space-around',
   },

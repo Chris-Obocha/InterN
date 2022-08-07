@@ -1,16 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+
 import NAText from '../../components/NAText';
-import Header from '../../components/Header';
+import AppText from '../../components/AppText';
 import BlueButton from '../../components/Buttons/BlueButton';
 
 export default function NAScreen() {
   return (
-    <View>
-      <Header title='Nursing Ambassadors' />
-      <Text style={styles.text}>{NAText.p1}</Text>
-      <Text style={styles.text}>{NAText.p2}</Text>
-      <View style={{ marginTop: 20, }}>
+    <View style={{ marginTop: 20, }}>
+      <AppText style={styles.text}>{NAText.p1}</AppText>
+     <View style={{ marginTop: 20, }}>
+        <AppText style={styles.text}>{NAText.p2}</AppText>
         <BlueButton title='East and North Hertfordshire' onPress='NAEastHerts'/>
         <BlueButton title='Princess Alexandra NHS Trust' onPress='NApah'/>
         <BlueButton title='West Hertfordshire NHS Trust' onPress='NAWestHerts'/>
@@ -26,5 +26,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     paddingHorizontal: 15,
     fontSize: 16,
+    textAlign: 'center',
   }
 });

@@ -4,15 +4,14 @@ import { useNavigation } from '@react-navigation/core';
 
 import colors from '../../config/colors';
 import AppText from '../AppText';
-
-export default function BlueButton({title, onPress, style}) {
+export default function DownloadBlueButton({title, onPress, style}) {
   const navigation = useNavigation();
    
   return (
     <View style={[styles.btnContainer, style]}>
       <TouchableOpacity 
         title={title}
-        onPress={() => navigation.navigate(`${onPress}`)}>
+        onPress={onPress}>
         <AppText style={styles.btnTitle}>{title}</AppText>
       </TouchableOpacity>
     </View>

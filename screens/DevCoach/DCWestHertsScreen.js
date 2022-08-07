@@ -3,24 +3,28 @@ import { Image, StyleSheet, ScrollView, Text, View, Dimensions } from 'react-nat
 import * as Linking from 'expo-linking';
 
 import InfoHeader from '../../components/InfoHeader';
+import AppText from '../../components/AppText';
 import devCoachText from '../../components/devCoachText';
-import BlueButton from '../../components/Buttons/BlueButton';
+import DownloadBlueButton from '../../components/Buttons/DownloadBlueButton';
 import ContactButton from '../../components/Buttons/ContactButton';
 
 export default function DCWestHertsScreen() {
   return (
-    <ScrollView>
+    <View style={{ flex: 1 }}>
       <InfoHeader title='Linda Whiteley' text='Development Coach' imageSrc={require('../../assets/linda.jpg')}/>
-      <Text style={styles.heading}>Profile</Text>
-      <Text style={styles.text}>{devCoachText.lindaP1}</Text>
-      <Text style={styles.text}>{devCoachText.lindaP2}</Text>
-      <Text style={styles.text}>{devCoachText.lindaP3}</Text>
-      <View>
-        <ContactButton title='email' url='mailto:linda.whiteley1@nhs.net' text='linda.whiteley1@nhs.net' />
-        <ContactButton title='Phone Number' url='tel:07903949908' text='07812785184 ' />
-        <BlueButton style={styles.bottomButton} title='Coaching Resources' onPress={() => Linking.openURL('https://england.nhs.uk/nursingmidwifery')}/>
-      </View>
-    </ScrollView>
+      <ScrollView>
+        <AppText style={styles.heading}>Profile</AppText>
+        <AppText style={styles.text}>{devCoachText.lindaP1}</AppText>
+        <AppText style={styles.text}>{devCoachText.lindaP2}</AppText>
+        <AppText style={styles.text}>{devCoachText.lindaP3}</AppText>
+        <View>
+          <ContactButton title='email' url='mailto:linda.whiteley1@nhs.net' text='linda.whiteley1@nhs.net' />
+          <ContactButton title='Phone Number' url='tel:07903949908' text='07812785184 ' />
+          <DownloadBlueButton style={styles.bottomButton} title='Coaching Resources' 
+              onPress={() => Linking.openURL('https://firebasestorage.googleapis.com/v0/b/intern-a9ad7.appspot.com/o/Coaching%20Resources%2FWelcome%20Pack%20-%20version5.pdf?alt=media&token=522cc8ee-8799-4e9c-9c0b-aae355d84522')} />
+        </View>
+      </ScrollView>
+    </View>
   );
 }
 

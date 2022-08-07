@@ -3,13 +3,14 @@ import Constants from "expo-constants";
 import { Text, View, StyleSheet } from 'react-native';
 
 import Screen from './Screen';
+import AppText from './AppText';
 import colors from '../config/colors';
 
 function Header({title, text}) {
   return (
       <View style={styles.headerContainer}>
-        <Text style={styles.heading}>{title}</Text>
-        <Text style={styles.text}>{text}</Text>
+        {/* <Text style={styles.heading}>{title}</Text> */}
+        <AppText style={styles.text}>{text}</AppText>
       </View>
   );
 }
@@ -26,14 +27,14 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     backgroundColor: colors.primary,
-    paddingBottom: 30,
+    paddingVertical: 15,
     borderBottomRightRadius: 30,
     borderBottomLeftRadius: 30,
-    // marginBottom: 20,
   },
   text: {
     color: colors.white,
     alignSelf: 'center',
-    paddingTop: 5,
+    marginHorizontal: 20,
+    textAlign: 'center',
   },
 });

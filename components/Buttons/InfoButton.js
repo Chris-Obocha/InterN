@@ -39,5 +39,6 @@ const styles = StyleSheet.create({
   },
   btnText: {
     color: colors.darkgray,
+    textAlign: 'center',
   },
 });

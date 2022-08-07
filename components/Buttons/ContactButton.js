@@ -4,6 +4,7 @@ import * as Linking from 'expo-linking';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import colors from '../../config/colors';
+import AppText from '../AppText';
 
 
 const MyButton = ({ title }) => {
@@ -22,10 +23,10 @@ const MyButton = ({ title }) => {
 export default function ContactButton({title, text, url }) {
 
   return (
-    <TouchableOpacity style={styles.btnContainer} onPress={() => Linking.openURL(`${url}`).catch(err => console.error('Error', err))} >
+    <TouchableOpacity style={styles.btnContainer} onPress={() => Linking.openURL(`${url}`).catch(e)} >
       <View style={styles.textBody}>
-        <Text style={styles.btnTitle}>{title}</Text>
-        <Text style={styles.btnText}>{text}</Text>
+        <AppText style={styles.btnTitle}>{title}</AppText>
+        <AppText style={styles.btnText}>{text}</AppText>
       </View>
       <MyButton title={title} />
     </TouchableOpacity>

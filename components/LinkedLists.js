@@ -1,16 +1,18 @@
 import React from 'react';
 import { Text, View, Pressable, StyleSheet, TouchableOpacity } from 'react-native';
+
 import colors from '../config/colors';
 import * as Linking from 'expo-linking';
+import AppText from './AppText';
 
 export default function LinkedLists({ title, text, date, onPress }) {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
         <View style={styles.btnContainer}>
-          <Text style={styles.title}>{title}</Text>
-          <Text numberOfLines={1} style={styles.date}>{date}</Text>
-          <Text numberOfLines={3} style={styles.text}>{text}</Text>
+          <AppText style={styles.title}>{title}</AppText>
+          <AppText numberOfLines={1} style={styles.date}>{date}</AppText>
+          <AppText numberOfLines={3} style={styles.text}>{text}</AppText>
         </View>
       </View>
     </TouchableOpacity>

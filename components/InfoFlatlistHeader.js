@@ -3,15 +3,16 @@ import { StyleSheet, View, Text } from 'react-native';
 
 import InfoButton from './Buttons/InfoButton';
 import colors from '../config/colors';
+import AppText from './AppText';
 
 function InfoFlatlistHeader(props) {
 
   return (
     <View style={styles.container}>
-      <InfoButton title='Development Coach' text='Meet your Dev Coach' route='DevCoach'/>
-      <InfoButton title='Nursing Ambassadors' text='Meet your Nursing Ambassadors' route='NAScreen' />
-      <InfoButton title='International Recruitment' route='InfoScreen'/>
-      <Text style={styles.heading}>Additional Resources</Text>
+      <InfoButton title='Development Coaches' text='Meet your Development Coach' route='DevCoach'/>
+      <InfoButton title='Nursing Ambassadors' text='Meet your Nursing Ambassador' route='NAScreen' />
+      <InfoButton title='International Recruitment' text='International Recruitment Team' route='IRTScreen'/>
+      <AppText style={styles.heading}>Additional Resources</AppText>
     </View>
 );
 }

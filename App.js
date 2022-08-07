@@ -21,6 +21,7 @@ import { AppFormField } from './components/forms';
 import Onboarding from './screens/Onboarding';
 import AuthNavigator from './navigation/AuthNavigator';
 import { firebase } from './config/firebase';
+import Splash from './screens/Splash';
 
 
 export default function App() {
@@ -38,7 +39,8 @@ export default function App() {
   return (
     <NavigationContainer theme={navigationTheme}>
       { isLoggedIn ? 
-      <AppNavigator /> :
+      <AppNavigator />
+      :
       <AuthNavigator /> }
     </NavigationContainer>
   );

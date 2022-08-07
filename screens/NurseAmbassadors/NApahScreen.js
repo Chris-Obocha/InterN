@@ -4,20 +4,23 @@ import { StyleSheet, ScrollView, Text, View } from 'react-native';
 import InfoHeader from '../../components/InfoHeader';
 import ContactButton from '../../components/Buttons/ContactButton';
 import NAText from '../../components/NAText';
+import AppText from '../../components/AppText';
 
 export default function NApahScreen() {
   return (
-    <ScrollView>
-      <InfoHeader title='Uzoma Onouha (Uzo)' text='Nurse Ambassador @WPrincessAlexandraHospital' imageSrc={require('../../assets/uzo.jpg')}/>
-      <Text style={styles.heading}>Profile</Text>
-      <Text style={styles.text}>{NAText.pah1}</Text>
-      <Text style={styles.text}>{NAText.pah2}</Text>
-      <Text style={styles.text}>{NAText.pah3}</Text>
-      <View style={styles.btnContainer}>
-        <ContactButton title='email' url='mailto:uzoma.onuoha@nhs.net' text='uzoma.onuoha@nhs.net' />
-        <ContactButton title='Phone Number' url='tel:07394402038' text='07394402038' />
-      </View>
-    </ScrollView>
+    <View style={{ flex: 1 }}>
+      <InfoHeader title='Uzoma Onouha (Uzo)' text='Nurse Ambassador' imageSrc={require('../../assets/uzo.jpg')}/>
+      <ScrollView>
+        <AppText style={styles.heading}>Profile</AppText>
+        <AppText style={styles.text}>{NAText.pah1}</AppText>
+        <AppText style={styles.text}>{NAText.pah2}</AppText>
+        <AppText style={styles.text}>{NAText.pah3}</AppText>
+        <View style={styles.btnContainer}>
+          <ContactButton title='email' url='mailto:uzoma.onuoha@nhs.net' text='uzoma.onuoha@nhs.net' />
+          <ContactButton title='Phone Number' url='tel:07394402038' text='07394402038' />
+        </View>
+      </ScrollView>
+    </View>
   );
 }
 
