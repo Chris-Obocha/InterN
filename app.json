@@ -4,10 +4,10 @@
     "slug": "InterN",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo-letter-blue.png",
+    "icon": "./assets/InterN-green-logoV3.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/logo-letter-blue.png",
+      "image": "./assets/InterN-green-logoV3.png",
       "resizeMode": "contain",
       "backgroundColor": "#fff"
     },

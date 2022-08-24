@@ -1,6 +1,7 @@
 import { Animated, StatusBar, StyleSheet, Text, View, FlatList, Pressable, Dimensions } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { firebase } from '../config/firebase';
+import * as Linking from 'expo-linking';
 
 import Screen from '../components/Screen';
 import colors from '../config/colors';
@@ -56,11 +57,12 @@ const FAQScreen = () => {
       querySnapshot => {
       const users = []
       querySnapshot.forEach((doc) => {
-        const {question, answer} = doc.data()
+        const {question, answer, url} = doc.data()
         users.push({
           id: doc.id,
           question,
           answer,
+          url,
         })
       })
       setUsers(users)
@@ -85,6 +87,7 @@ const FAQScreen = () => {
         numColumns={1}
         renderItem={({item}) => (
           <Pressable
+            onPress={() => Linking.openURL(`${item.url}`).catch(e)}
             style={styles.container}
           >
             <View style={styles.innerContainer}>
