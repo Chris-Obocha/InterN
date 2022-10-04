@@ -3,7 +3,7 @@ export default {
     title: 'NHS England International Recruitment/ International Nursing Associations',
     date: '7 Tips for Wellbeing (Healthcare workers)',
     text: 'The different NHS international nursing associations are available here',
-    url: 'https://england.nhs.uk/nursingmidwifery',
+    url: 'https://www.england.nhs.uk/nursingmidwifery/international-recruitment/',
   },
   item2: {
     title: '7 Tips for Wellbeing (Healthcare workers)',

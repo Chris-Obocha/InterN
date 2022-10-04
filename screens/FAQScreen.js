@@ -1,4 +1,4 @@
-import { Animated, StatusBar, StyleSheet, Text, View, FlatList, Pressable, Dimensions } from 'react-native';
+import { Animated, StatusBar, StyleSheet, Text, View, FlatList, Pressable, Dimensions, TouchableOpacity } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { firebase } from '../config/firebase';
 import * as Linking from 'expo-linking';
@@ -85,17 +85,31 @@ const FAQScreen = () => {
         style={{height:'100%', marginTop: 20}}
         data={users}
         numColumns={1}
-        renderItem={({item}) => (
-          <Pressable
-            onPress={() => Linking.openURL(`${item.url}`).catch(e)}
-            style={styles.container}
-          >
-            <View style={styles.innerContainer}>
-              <AppText style={styles.itemHeading}>{item.question}</AppText>
-              <AppText style={styles.itemText}>{item.answer}</AppText>
-            </View> 
-          </Pressable>
-        )}
+        renderItem={({item}) => {
+          if(item.url) {
+            return (
+              <TouchableOpacity
+                onPress={() => Linking.openURL(`${item.url}`).catch()}
+                style={styles.container}
+              >
+                <View style={styles.innerContainer}>
+                  <AppText style={styles.itemHeading}>{item.question}</AppText>
+                  <AppText style={styles.itemText}>{item.answer}</AppText>
+                </View> 
+              </TouchableOpacity>
+            )
+          }
+          return (
+            <View
+                style={styles.container}
+            >
+              <View style={styles.innerContainer}>
+                <AppText style={styles.itemHeading}>{item.question}</AppText>
+                <AppText style={styles.itemText}>{item.answer}</AppText>
+              </View> 
+            </View>
+          )
+        }}
       />
     </Screen>
   )
@@ -121,7 +135,7 @@ const styles = StyleSheet.create({
       flexDirection: 'column',
   },
   itemHeading: {
-      fontWeight: 'bold',
+      fontWeight: '500',
       fontSize: 24,
       marginBottom: 5,
   },

@@ -18,8 +18,8 @@ export default function NAEastHertsScreen() {
         <AppText style={styles.text}>{NAText.enh3}</AppText>
         <AppText style={styles.text}>{NAText.enh4}</AppText>
         <View>
-          {/* <ContactButton title='email' url='mailto:jaimol.anilkumar@nhs.net' text='jaimol.anilkumar@nhs.net' /> */}
-          <ContactButton title='Phone Number' url='tel:07444144815 ' text='07444144815'  />
+          <ContactButton title='email' url='mailto:mary.oyakhirome@nhs.net' text='mary.oyakhirome@nhs.net' />
+          <ContactButton title='Phone Number' url='tel:07855981648' text='07855981648'  />
         </View>
       </ScrollView>
     </View>

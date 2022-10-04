@@ -2,7 +2,7 @@
   "expo": {
     "name": "InterN",
     "slug": "InterN",
-    "version": "1.0.0",
+    "version": "1.2",
     "orientation": "portrait",
     "icon": "./assets/InterN-green-logoV3.png",
     "userInterfaceStyle": "light",
@@ -19,17 +19,34 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.christopherobocha.intern2"
+      "bundleIdentifier": "com.christopherobocha.intern2",
+      "buildNumber": "2"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "hpft.hweics.intern"
+      "package": "hpft.hweics.intern",
+      "versionCode": 3
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "25e4efc9-9546-4980-846f-61b6ae758021"
+      }
+    },
+    "plugins": [
+      [
+        "expo-build-properties", 
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
+    ]
   }
 }

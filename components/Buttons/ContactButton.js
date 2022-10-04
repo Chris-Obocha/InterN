@@ -23,7 +23,7 @@ const MyButton = ({ title }) => {
 export default function ContactButton({title, text, url }) {
 
   return (
-    <TouchableOpacity style={styles.btnContainer} onPress={() => Linking.openURL(`${url}`).catch(e)} >
+    <TouchableOpacity style={styles.btnContainer} onPress={() => Linking.openURL(`${url}`).catch()} >
       <View style={styles.textBody}>
         <AppText style={styles.btnTitle}>{title}</AppText>
         <AppText style={styles.btnText}>{text}</AppText>

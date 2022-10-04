@@ -12,8 +12,8 @@ export default function NAScreen() {
      <View style={{ marginTop: 20, }}>
         <AppText style={styles.text}>{NAText.p2}</AppText>
         <BlueButton title='East and North Hertfordshire' onPress='NAEastHerts'/>
-        <BlueButton title='Princess Alexandra NHS Trust' onPress='NApah'/>
-        <BlueButton title='West Hertfordshire NHS Trust' onPress='NAWestHerts'/>
+        {/* <BlueButton title='Princess Alexandra NHS Trust' onPress='NApah'/> */}
+        {/* <BlueButton title='West Hertfordshire NHS Trust' onPress='NAWestHerts'/> */}
       </View>
     </View>
   );

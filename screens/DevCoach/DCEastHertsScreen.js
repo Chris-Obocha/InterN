@@ -19,7 +19,7 @@ export default function DCEastHertsScreen() {
         <AppText style={styles.text}>{devCoachText.lindaP3}</AppText>
         <View>
           <ContactButton title='email' url='mailto:linda.whiteley1@nhs.net' text='linda.whiteley1@nhs.net' />
-          <ContactButton title='Phone Number' url='tel:07903949908' text='07812785184 ' />
+          <ContactButton title='Phone Number' url='tel:07812785184' text='07812785184'/>
           <DownloadBlueButton style={styles.bottomButton} title='Coaching Resources' 
             onPress={() => Linking.openURL('https://firebasestorage.googleapis.com/v0/b/intern-a9ad7.appspot.com/o/Coaching%20Resources%2FWelcome%20Pack%20-%20version5.pdf?alt=media&token=522cc8ee-8799-4e9c-9c0b-aae355d84522')}
           />

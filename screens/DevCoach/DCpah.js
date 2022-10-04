@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, ScrollView, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, ScrollView, View } from 'react-native';
 import * as Linking from 'expo-linking';
 
 import InfoHeader from '../../components/InfoHeader';
@@ -19,7 +19,7 @@ export default function DCpah(props) {
       <AppText style={styles.text}>{devCoachText.priscillahP3}</AppText>
       <View>
         <ContactButton title='email' url='mailto:priscillah.osikominu@nhs.net' text='priscillah.osikominu@nhs.net' />
-        <ContactButton title='Phone Number' url='tel:07903949908' text='07903949908' />
+        <ContactButton title='Phone Number' url='tel:07971992270' text='07971992270' />
         <DownloadBlueButton style={styles.bottomButton} title='Coaching Resources' 
             onPress={() => Linking.openURL('https://firebasestorage.googleapis.com/v0/b/intern-a9ad7.appspot.com/o/Coaching%20Resources%2FWelcome%20Pack%20-%20version5.pdf?alt=media&token=522cc8ee-8799-4e9c-9c0b-aae355d84522')} />
       </View>
